@@ -28,10 +28,10 @@ public class Movement : MonoBehaviour
     private void move() {
         // is player(heart) is not moving and player has pressed key (W,A,S,D/Arrows key) only once, 
         // then perform the body of if block.
-        if (!_isMoving && checkPressKeyDown()) {
+        if (!_isMoving) {
 
             // get the input from user.
-            _input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            getInput();
 
             // check if player is moving on x-axis or y-axis;
             if (Mathf.Abs(_input.x) > Mathf.Abs(_input.y)) {
@@ -56,12 +56,12 @@ public class Movement : MonoBehaviour
         }
     }
 
-    // This method will return true if player press (W,A,S,D/Arrow keys) only one time.
-    // will return false if press another key or hold the above mention keys.
-    private bool checkPressKeyDown() {
-        return Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) 
-               || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow) 
-               || Input.GetKeyDown(KeyCode.LeftArrow);
+    private void getInput() {
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) _input.y = 1;
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) _input.y = -1;
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) _input.x = -1;
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) _input.x = 1;
+        else _input = Vector2.zero;
     }
 
     // This method will let the player to move to the approciate grid on (x/y) axis.
