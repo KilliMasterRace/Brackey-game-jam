@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float GridSize = 1f;
     [SerializeField] private float RotationValue = 20f;
     [SerializeField] private GameObject HighLightPrefab;
+    [SerializeField] private LayerMask WallLayerMask;
 
     private enum Orientataion { Horizontal, Vecrical };
 
@@ -19,9 +20,15 @@ public class Movement : MonoBehaviour
     private float _factor = 1f;
     private bool _isMoving = false;
     private Vector2 _input;
-    
+    private float _raycastLength = 1f;
+
+    private bool wallOnLeft = false, wallOnRight = false,
+                 wallOnTop = false, wallOnBottom = false;
+
+
     void Update() {
         move();
+        
     }
 
     // Method-> this method will let the player(heart) to move.
@@ -30,8 +37,9 @@ public class Movement : MonoBehaviour
         // then perform the body of if block.
         if (!_isMoving) {
 
+            checkIfHitWall();
             // get the input from user.
-            getInput();
+            getInput();     
 
             // check if player is moving on x-axis or y-axis;
             if (Mathf.Abs(_input.x) > Mathf.Abs(_input.y)) {
@@ -56,11 +64,19 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void checkIfHitWall() {
+        wallOnTop = Physics2D.Raycast(transform.position, Vector2.up, _raycastLength, WallLayerMask);
+        wallOnBottom = Physics2D.Raycast(transform.position, Vector2.down, _raycastLength, WallLayerMask);
+        wallOnRight = Physics2D.Raycast(transform.position, Vector2.right, _raycastLength, WallLayerMask);
+        wallOnLeft =  Physics2D.Raycast(transform.position, Vector2.left, _raycastLength, WallLayerMask);
+    }
+
+
     private void getInput() {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) _input.y = 1;
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) _input.y = -1;
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) _input.x = -1;
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) _input.x = 1;
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !wallOnTop) _input.y = 1;
+        else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !wallOnBottom) _input.y = -1;
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && !wallOnLeft) _input.x = -1;
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !wallOnRight) _input.x = 1;
         else _input = Vector2.zero;
     }
 
@@ -92,4 +108,6 @@ public class Movement : MonoBehaviour
         _isMoving = false;                                  // set moving to false. as player is not moving.
         yield return 0;
     }
+
+
 }
