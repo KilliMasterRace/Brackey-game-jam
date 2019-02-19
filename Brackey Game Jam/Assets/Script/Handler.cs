@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Handler : MonoBehaviour
 {
-    public Handler INSTANCE;
+	#region Variables
+	[HideInInspector]
+	public static Handler INSTANCE; // The INSTANCE of the Handler class
+	public int maxLevelBeaten; // The maximum level the player has reached in this game session	
+	#endregion
 
-    void Start()
+	#region Unity Built-in Functions
+	void Start()
     {
         //Make a singleton
         INSTANCE = this;
@@ -17,8 +22,10 @@ public class Handler : MonoBehaviour
         // Load the first scene (This scene is just a initialization scene)
         SceneManager.LoadScene(1);
     }
+	#endregion
 
-    public void LoadScene(int _BuildIndex)
+	#region SceneManagment
+	public void LoadScene(int _BuildIndex)
     {
         // LoadScene number _BuildIndex
         SceneManager.LoadScene(_BuildIndex);
@@ -35,4 +42,23 @@ public class Handler : MonoBehaviour
         // Load our currently active scene
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+	#endregion
+
+	#region Other Stuff...
+	public void SaveMaximumLevelBeaten()
+	{
+		// Set MaximumLevelBeaten to maxLevelBeaten 
+		PlayerPrefs.SetInt("MaximumLevelBeaten", maxLevelBeaten);
+		// Save the PlayerPrefs, incase of a not proper application termination (etc. crashes, power loss, disconect(if in webGL))
+		PlayerPrefs.Save();
+	}
+
+	public void LoadMaximumLevelBeaten()
+	{
+		maxLevelBeaten = PlayerPrefs.GetInt("MaximumLevelBeaten");
+
+		LoadScene(maxLevelBeaten);
+	}
+
+	#endregion
 }
