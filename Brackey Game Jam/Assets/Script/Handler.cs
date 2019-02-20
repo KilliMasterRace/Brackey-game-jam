@@ -9,19 +9,26 @@ public class Handler : MonoBehaviour
 	[HideInInspector]
 	public static Handler INSTANCE; // The INSTANCE of the Handler class
 	public int maxLevelBeaten; // The maximum level the player has reached in this game session	
+
 	#endregion
 
 	#region Unity Built-in Functions
 	void Start()
     {
+		//currentSceneIndex = DefaultSceneLoader.tempIndex;
         //Make a singleton
         INSTANCE = this;
 
         // DO NOT destroy this object on ANY scene load
         DontDestroyOnLoad(gameObject);
-        // Load the first scene (This scene is just a initialization scene)
-        SceneManager.LoadScene(1);
-    }
+
+//Should not compile as its in unity editor
+#if !UNITY_EDITOR
+	// Load the first scene (This scene is just a initialization scene)
+	SceneManager.LoadScene(1);
+#endif
+	}
+
 	#endregion
 
 	#region SceneManagment
@@ -42,9 +49,9 @@ public class Handler : MonoBehaviour
         // Load our currently active scene
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-	#endregion
+#endregion
 
-	#region Other Stuff...
+#region Other Stuff...
 	public void SaveMaximumLevelBeaten()
 	{
 		// Set MaximumLevelBeaten to maxLevelBeaten 
@@ -60,5 +67,5 @@ public class Handler : MonoBehaviour
 		LoadScene(maxLevelBeaten);
 	}
 
-	#endregion
+#endregion
 }
