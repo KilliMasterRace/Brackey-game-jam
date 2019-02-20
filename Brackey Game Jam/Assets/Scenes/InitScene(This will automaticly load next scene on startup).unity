@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600be4c1e46d42342a3a685795c594bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  INSTANCE: {fileID: 0}
+  maxLevelBeaten: 2
 --- !u!4 &1542449690
 Transform:
   m_ObjectHideFlags: 0

@@ -5,20 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class Handler : MonoBehaviour
 {
-    public Handler INSTANCE;
+	#region Variables
+	[HideInInspector]
+	public static Handler INSTANCE; // The INSTANCE of the Handler class
+	public int maxLevelBeaten; // The maximum level the player has reached in this game session	
 
-    void Start()
+	#endregion
+
+	#region Unity Built-in Functions
+	void Start()
     {
+		//currentSceneIndex = DefaultSceneLoader.tempIndex;
         //Make a singleton
         INSTANCE = this;
 
         // DO NOT destroy this object on ANY scene load
         DontDestroyOnLoad(gameObject);
-        // Load the first scene (This scene is just a initialization scene)
-        SceneManager.LoadScene(1);
-    }
 
-    public void LoadScene(int _BuildIndex)
+//Should not compile as its in unity editor
+#if !UNITY_EDITOR
+	// Load the first scene (This scene is just a initialization scene)
+	SceneManager.LoadScene(1);
+#endif
+	}
+
+	#endregion
+
+	#region SceneManagment
+	public void LoadScene(int _BuildIndex)
     {
         // LoadScene number _BuildIndex
         SceneManager.LoadScene(_BuildIndex);
@@ -35,4 +49,23 @@ public class Handler : MonoBehaviour
         // Load our currently active scene
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+#endregion
+
+#region Other Stuff...
+	public void SaveMaximumLevelBeaten()
+	{
+		// Set MaximumLevelBeaten to maxLevelBeaten 
+		PlayerPrefs.SetInt("MaximumLevelBeaten", maxLevelBeaten);
+		// Save the PlayerPrefs, incase of a not proper application termination (etc. crashes, power loss, disconect(if in webGL))
+		PlayerPrefs.Save();
+	}
+
+	public void LoadMaximumLevelBeaten()
+	{
+		maxLevelBeaten = PlayerPrefs.GetInt("MaximumLevelBeaten");
+
+		LoadScene(maxLevelBeaten);
+	}
+
+#endregion
 }
