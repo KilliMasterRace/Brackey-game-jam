@@ -9,15 +9,15 @@ public class Movement : MonoBehaviour
     [SerializeField] private float RotationValue = 20f;
     [SerializeField] private GameObject HighLightPrefab;
     [SerializeField] private LayerMask WallLayerMask;
+ 
 
     private enum Orientataion { Horizontal, Vecrical };
-
     private Orientataion _gridOrientation;
     private Vector2 _startPosition;
     private Vector2 _endPosition;
     private Quaternion _toRotate;
     private float _time;
-    private float _factor = 1f;
+    private float _factor = 1.5f;
     private bool _isMoving = false;
     private Vector2 _input;
     private float _raycastLength = 1f;
@@ -25,10 +25,8 @@ public class Movement : MonoBehaviour
     private bool wallOnLeft = false, wallOnRight = false,
                  wallOnTop = false, wallOnBottom = false;
 
-
     void Update() {
         move();
-        
     }
 
     // Method-> this method will let the player(heart) to move.
@@ -59,7 +57,7 @@ public class Movement : MonoBehaviour
             }
 
             if (_input != Vector2.zero) {
-                StartCoroutine(moveToGrid(transform.position));
+                  StartCoroutine(moveToGrid(transform.position));
             }
         }
     }
@@ -109,5 +107,7 @@ public class Movement : MonoBehaviour
         yield return 0;
     }
 
-
+    public Vector2 getEndPosition() {
+        return _endPosition;
+    }
 }
