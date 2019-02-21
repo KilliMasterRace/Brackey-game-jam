@@ -195,6 +195,8 @@ MonoBehaviour:
     m_Bits: 256
   MoveToRight: 1
   MoveToLeft: 1
+  MoveToTop: 1
+  MoveToBottom: 1
 --- !u!114 &8600261794194927330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +215,7 @@ MonoBehaviour:
   TargetMaks:
     serializedVersion: 2
     m_Bits: 1024
-  Distance: 0.8
+  Distance: 1
   GenderType: 1
 --- !u!58 &6922540706247667824
 CircleCollider2D:
@@ -228,9 +230,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0027852058, y: -0.0027308862}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.45630682
+  m_Radius: 0.5
 --- !u!70 &9099955806087386498
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -244,7 +246,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.147234, y: 0.0053825513}
+  m_Offset: {x: -0.147234, y: 0.0053825513}
   m_Size: {x: 0.4168377, y: 0.7201001}
   m_Direction: 0
 --- !u!50 &7176744555457615445
