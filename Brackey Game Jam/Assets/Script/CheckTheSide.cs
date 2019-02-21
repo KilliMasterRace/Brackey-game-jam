@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class CheckTheSide : MonoBehaviour {
 
-  
+    
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Detect_Male" || collision.tag == "Detect_Female") {
             
             var direction = collision.transform.position - transform.position;
- 
+            print("direction x: " + direction.x);
+
             if (direction.x < 0) {
                 collision.GetComponentInParent<Movement>().MoveToRight = false;
                 GetComponent<Movement>().MoveToLeft = false;
+                print("less then zero");
             } else {
                 collision.GetComponentInParent<Movement>().MoveToLeft = false;
                 GetComponent<Movement>().MoveToRight = false;
+                print("greater then zero");
             }
-            
         }
     }
 
@@ -28,6 +31,7 @@ public class CheckTheSide : MonoBehaviour {
 
             GetComponent<Movement>().MoveToLeft = true;
             GetComponent<Movement>().MoveToRight = true;
+            print("trigger exit");
         }
      
     }

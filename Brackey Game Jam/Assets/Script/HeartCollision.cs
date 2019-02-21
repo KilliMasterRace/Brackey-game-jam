@@ -31,7 +31,10 @@ public class HeartCollision : MonoBehaviour
         if (_spriteRender.flipX) {
             _direction = Vector2.left;
             childTransform.localPosition = new Vector3(0.6f, 0f, 0f);
-        } else {
+            var offSet = this.GetComponent<CapsuleCollider2D>().offset;
+            this.GetComponent<CapsuleCollider2D>().offset = new Vector2(Mathf.Abs(offSet.x), offSet.y);
+        }
+        else {
             _direction = Vector2.right;
             childTransform.localPosition = new Vector3(-0.6f, 0f, 0f);
         }
