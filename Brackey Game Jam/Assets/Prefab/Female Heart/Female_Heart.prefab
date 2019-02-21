@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 9129603493194227141}
   - component: {fileID: 1562415552154346242}
   - component: {fileID: 4728255019015413984}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Female_Heart
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

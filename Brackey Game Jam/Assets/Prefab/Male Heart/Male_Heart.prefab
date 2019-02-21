@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3124861437807577612}
   - component: {fileID: 3124861437807577611}
   - component: {fileID: 3124861437807577610}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Male_Heart
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
