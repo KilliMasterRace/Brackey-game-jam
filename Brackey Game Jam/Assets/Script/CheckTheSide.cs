@@ -4,21 +4,9 @@ using UnityEngine;
 
 public class CheckTheSide : MonoBehaviour {
 
-    private enum Gender { Male, Female};
-    [SerializeField] private Gender GenderType;
-
-    private string _genderTag;
-
-    private void Start() {
-        if (GenderType == Gender.Male) {
-            _genderTag = "Detect_Male";
-        } else {
-            _genderTag = "Detect_Female";
-        }
-    }
-
+  
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == _genderTag) {
+        if (collision.tag == "Detect_Male" || collision.tag == "Detect_Female") {
             
             var direction = collision.transform.position - transform.position;
  
@@ -34,7 +22,7 @@ public class CheckTheSide : MonoBehaviour {
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag == _genderTag) {
+        if (collision.tag == "Detect_Male" || collision.tag == "Detect_Female") {
             collision.GetComponentInParent<Movement>().MoveToRight = true;
             collision.GetComponentInParent<Movement>().MoveToLeft = true;
 
