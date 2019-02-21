@@ -13,4 +13,10 @@ public class UIButtonFunctions : MonoBehaviour
 	{
 		Handler.INSTANCE.LoadNextScene();
 	}
+
+    public void ExitGame()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 }
