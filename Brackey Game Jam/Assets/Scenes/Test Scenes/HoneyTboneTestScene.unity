@@ -189,6 +189,8 @@ MonoBehaviour:
   WallLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  MoveToRight: 1
+  MoveToLeft: 1
 --- !u!212 &58735603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -455,6 +457,8 @@ MonoBehaviour:
   WallLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  MoveToRight: 1
+  MoveToLeft: 1
 --- !u!212 &1118475887
 SpriteRenderer:
   m_ObjectHideFlags: 0
