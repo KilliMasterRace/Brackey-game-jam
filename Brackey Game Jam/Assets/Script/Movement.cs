@@ -9,7 +9,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float RotationValue = 20f;
     [SerializeField] private GameObject HighLightPrefab;
     [SerializeField] private LayerMask WallLayerMask;
- 
+
+    [HideInInspector] public bool MoveToRight = true, MoveToLeft = true;
 
     private enum Orientataion { Horizontal, Vecrical };
     private Orientataion _gridOrientation;
@@ -21,9 +22,11 @@ public class Movement : MonoBehaviour
     private bool _isMoving = false;
     private Vector2 _input;
     private float _raycastLength = 1f;
-
+    
     private bool wallOnLeft = false, wallOnRight = false,
                  wallOnTop = false, wallOnBottom = false;
+
+   
 
     void Update() {
         move();
@@ -73,8 +76,8 @@ public class Movement : MonoBehaviour
     private void getInput() {
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !wallOnTop) _input.y = 1;
         else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !wallOnBottom) _input.y = -1;
-        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && !wallOnLeft) _input.x = -1;
-        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !wallOnRight) _input.x = 1;
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && !wallOnLeft && MoveToLeft) _input.x = -1;
+        else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !wallOnRight && MoveToRight) _input.x = 1;
         else _input = Vector2.zero;
     }
 
@@ -110,4 +113,5 @@ public class Movement : MonoBehaviour
     public Vector2 getEndPosition() {
         return _endPosition;
     }
+
 }
