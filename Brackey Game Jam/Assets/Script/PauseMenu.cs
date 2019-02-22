@@ -20,22 +20,22 @@ public class PauseMenu : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.P)))
 			{
-				PauseGame();
+				if (Time.timeScale == 0)
+					UnPauseGame();
+				else
+					PauseGame();
 			}
 		}
 	}
 	public void PauseGame()
 	{
-		if (Time.timeScale != 0)
-		{
-			pasueMenu.SetActive(true);
-			Time.timeScale = 0;
-		}
-		else
-		{
-			pasueMenu.SetActive(false);
-			Time.timeScale = 1;
-		}
+		pasueMenu.SetActive(true);
+		Time.timeScale = 0;
+	}
 
+	public void UnPauseGame()
+	{
+		pasueMenu.SetActive(false);
+		Time.timeScale = 1;
 	}
 }
