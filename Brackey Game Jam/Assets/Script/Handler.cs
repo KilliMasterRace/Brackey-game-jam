@@ -22,7 +22,7 @@ public class Handler : MonoBehaviour
         // DO NOT destroy this object on ANY scene load
         DontDestroyOnLoad(gameObject);
 
-//Should not compile as its in unity editor
+		//Should not compile as its in unity editor
 #if !UNITY_EDITOR
 	// Load the first scene (This scene is just a initialization scene)
 	SceneManager.LoadScene(1);
@@ -49,6 +49,11 @@ public class Handler : MonoBehaviour
         // Load our currently active scene
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+	public void LoadMenuScene()
+	{
+		LoadScene(1);
+	}
 #endregion
 
 #region Other Stuff...

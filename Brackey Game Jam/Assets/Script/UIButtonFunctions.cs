@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIButtonFunctions : MonoBehaviour
 {
-    public void ContinueSavedGame()
+	public void ContinueSavedGame()
 	{
 		Handler.INSTANCE.LoadMaximumLevelBeaten();
 	}
@@ -14,9 +14,13 @@ public class UIButtonFunctions : MonoBehaviour
 		Handler.INSTANCE.LoadNextScene();
 	}
 
-    public void ExitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
+	public void QuitGame()
+	{
+		Application.Quit();
+	}
+	
+	public void ReturnToMenu()
+	{
+		Handler.INSTANCE.LoadMenuScene();
+	}
 }

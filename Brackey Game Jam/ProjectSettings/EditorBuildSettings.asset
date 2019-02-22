@@ -9,9 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/InitScene(This will automaticly load next scene on startup).unity
     guid: 5dc3e47b857e38f4b90dd6a31033dc19
   - enabled: 1
-    path: Assets/Scenes/Test Scenes/Killi-MenuTest.unity
-    guid: c4d42103785dd62468e68490f5b46fdb
+    path: Assets/Scenes/PLACEHOLDER MainMenu.unity
+    guid: 36c559adadb302c45a2a26579faf34ec
   - enabled: 1
     path: Assets/Scenes/GamePlay.unity
     guid: 71fb75ec52267d4438031286bb4c0db6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level01.unity
+    guid: 885f8232a1636ab40aecfe9d9865bfe0
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level02.unity
+    guid: e5098399c57790647bb71a282ed3f6c1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level03.unity
+    guid: 1d74c1073aaebfe4c8d15b59542140ca
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level04.unity
+    guid: ca95599c3dfd04e408690b499eb040d8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level05.unity
+    guid: f02e95866dce958498593aad7f48f15e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level06.unity
+    guid: 51b051c50b9c844429cc4a805dd02a49
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level07.unity
+    guid: 0d40cfaa9d1ce724f8404703152ec4c7
   m_configObjects: {}

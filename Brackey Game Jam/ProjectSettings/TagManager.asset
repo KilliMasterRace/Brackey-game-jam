@@ -9,6 +9,7 @@ TagManager:
   - Right_Side
   - Female
   - Detect_Female
+  - Heart
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Wall
   - Male
   - Female
-  - 
+  - Heart
   - 
   - 
   - 
