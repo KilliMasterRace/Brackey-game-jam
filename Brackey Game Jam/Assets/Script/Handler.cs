@@ -72,7 +72,7 @@ public class Handler : MonoBehaviour
 	{
 		maxLevelBeaten = PlayerPrefs.GetInt("MaximumLevelBeaten");
 
-		LoadScene(maxLevelBeaten);
+		LoadScene(maxLevelBeaten + 1);
 	}
 
 	public void PlayMoveSound()
