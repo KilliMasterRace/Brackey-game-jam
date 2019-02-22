@@ -6,7 +6,10 @@ public class UIButtonFunctions : MonoBehaviour
 {
 	public void ContinueSavedGame()
 	{
-		Handler.INSTANCE.LoadMaximumLevelBeaten();
+		if (PlayerPrefs.GetInt("MaximumLevelBeaten") > 0)
+		{
+			Handler.INSTANCE.LoadMaximumLevelBeaten();
+		}
 	}
 
 	public void NewGame()
@@ -21,6 +24,12 @@ public class UIButtonFunctions : MonoBehaviour
 	
 	public void ReturnToMenu()
 	{
+		GetComponent<PauseMenu>().UnPauseGame();
 		Handler.INSTANCE.LoadMenuScene();
+	}
+
+	public void Restart()
+	{
+		Handler.INSTANCE.LoadCurrentScene();
 	}
 }
