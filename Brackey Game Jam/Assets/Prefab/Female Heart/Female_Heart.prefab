@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1911184223274571610}
   - component: {fileID: 9129603493194227141}
   - component: {fileID: 1562415552154346242}
-  - component: {fileID: 4728255019015413984}
+  - component: {fileID: 1226297928}
   m_Layer: 11
   m_Name: Female_Heart
   m_TagString: Heart
@@ -105,6 +105,8 @@ MonoBehaviour:
     m_Bits: 256
   MoveToRight: 1
   MoveToLeft: 1
+  MoveToTop: 1
+  MoveToBottom: 1
 --- !u!58 &9129603493194227141
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,7 +144,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &4728255019015413984
+--- !u!95 &1226297928
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -150,9 +152,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6437503434130709654}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: caf7c520091fc3743ac4a1346ff7df8e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 836fead05622c3548925c93477667bb4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
