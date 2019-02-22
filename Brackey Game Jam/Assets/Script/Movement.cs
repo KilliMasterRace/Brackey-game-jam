@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     private Vector2 _endPosition;
     private Quaternion _toRotate;
     private float _time;
-    private float _factor = 1.5f;
+    private float _factor = 1f;
     private bool _isMoving = false;
     private Vector2 _input;
     private float _raycastLength = 1f;
@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
 
     [HideInInspector] public static int CountMove = 0;
     private static bool CanCount = false;
+
 
     void Update() {
         move();
@@ -75,6 +76,11 @@ public class Movement : MonoBehaviour
         wallOnBottom = Physics2D.Raycast(transform.position, Vector2.down, _raycastLength, WallLayerMask);
         wallOnRight = Physics2D.Raycast(transform.position, Vector2.right, _raycastLength, WallLayerMask);
         wallOnLeft =  Physics2D.Raycast(transform.position, Vector2.left, _raycastLength, WallLayerMask);
+
+        Debug.DrawRay(transform.position, Vector2.up, Color.blue);
+        Debug.DrawRay(transform.position, Vector2.down, Color.blue);
+        Debug.DrawRay(transform.position, Vector2.left, Color.blue);
+        Debug.DrawRay(transform.position, Vector2.right, Color.blue);
     }
 
 

@@ -163,6 +163,8 @@ MonoBehaviour:
     m_Bits: 256
   MoveToRight: 1
   MoveToLeft: 1
+  MoveToTop: 1
+  MoveToBottom: 1
 --- !u!58 &3885074053072164553
 CircleCollider2D:
   m_ObjectHideFlags: 0

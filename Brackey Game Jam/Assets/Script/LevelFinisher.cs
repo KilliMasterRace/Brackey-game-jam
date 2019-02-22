@@ -14,8 +14,11 @@ public class LevelFinisher : MonoBehaviour {
         if (collision.tag == "Heart") {
             _tempCounter--;
 
-            if (_tempCounter == 0)
+            if (_tempCounter == 0) {
+                Movement.CountMove = 0;
                 Handler.INSTANCE.LoadNextScene();
+            }
+                
         }
     }
 
