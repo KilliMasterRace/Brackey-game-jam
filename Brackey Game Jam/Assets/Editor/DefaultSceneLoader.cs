@@ -22,7 +22,9 @@ public static class DefaultSceneLoader
 
 		if (state == PlayModeStateChange.EnteredPlayMode && EditorSceneManager.GetActiveScene().buildIndex != 0)
 		{
-			new GameObject("CREATED BY EDITOR SCRIPTS").AddComponent<Handler>();
+			//new GameObject("CREATED BY EDITOR SCRIPTS").AddComponent<Handler>();
+			EditorSceneManager.LoadScene(0, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+			EditorSceneManager.UnloadSceneAsync(0);
 		}
 	}
 }
