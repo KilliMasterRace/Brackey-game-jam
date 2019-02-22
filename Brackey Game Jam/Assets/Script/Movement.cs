@@ -26,10 +26,15 @@ public class Movement : MonoBehaviour
     private bool wallOnLeft = false, wallOnRight = false,
                  wallOnTop = false, wallOnBottom = false;
 
-   
+    [HideInInspector] public static int CountMove = 0;
+    private static bool CanCount = false;
 
     void Update() {
         move();
+    }
+
+    private void LateUpdate() {
+        CountMoveAllHearts();
     }
 
     // Method-> this method will let the player(heart) to move.
@@ -37,7 +42,6 @@ public class Movement : MonoBehaviour
         // is player(heart) is not moving and player has pressed key (W,A,S,D/Arrows key) only once, 
         // then perform the body of if block.
         if (!_isMoving) {
-
             checkIfHitWall();
             // get the input from user.
             getInput();     
@@ -53,14 +57,15 @@ public class Movement : MonoBehaviour
                 else
                     _toRotate = Quaternion.Euler(new Vector3(0f, 0f, RotationValue));
             }
-            else {
+            else if (Mathf.Abs(_input.y) > Mathf.Abs(_input.x))
+            {
                 _gridOrientation = Orientataion.Vecrical;        // set orientation to vertical mean player move on y-axis
                 _toRotate = Quaternion.identity;                 // moving up-down (y-axis) so no rotation.   
                 _input.x = 0;
             }
 
             if (_input != Vector2.zero) {
-                  StartCoroutine(moveToGrid(transform.position));
+                StartCoroutine(moveToGrid(transform.position));
             }
         }
     }
@@ -84,6 +89,7 @@ public class Movement : MonoBehaviour
     // This method will let the player to move to the approciate grid on (x/y) axis.
     IEnumerator moveToGrid(Vector3 position) {
         _isMoving = true;
+        CanCount = true;
         _startPosition = position;
         _time = 0f;
 
@@ -114,4 +120,12 @@ public class Movement : MonoBehaviour
         return _endPosition;
     }
 
+    private static void CountMoveAllHearts() {
+        if (CanCount) {
+            CountMove++;
+            print("move: " + CountMove);
+            CanCount = false;
+        }
+        
+    }
 }
