@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 
 	private void Update()
 	{
-		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 1)
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 1 || UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings +1)
 		{
 			if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.P)))
 			{
