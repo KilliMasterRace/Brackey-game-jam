@@ -106,6 +106,8 @@ MonoBehaviour:
     m_Bits: 256
   MoveToRight: 1
   MoveToLeft: 1
+  MoveToTop: 1
+  MoveToBottom: 1
 --- !u!58 &6379611263399337799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -119,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01064539, y: 0.007984042}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.46007967
+  m_Radius: 0.5
 --- !u!50 &4147535360542976339
 Rigidbody2D:
   serializedVersion: 4
