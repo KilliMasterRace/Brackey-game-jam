@@ -15,7 +15,7 @@ public class LevelFinisher : MonoBehaviour {
             _tempCounter--;
 
             if (_tempCounter == 0)
-                print("level completed");
+                Handler.INSTANCE.LoadNextScene();
         }
     }
 
