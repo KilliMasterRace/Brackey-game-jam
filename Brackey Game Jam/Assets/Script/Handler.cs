@@ -9,6 +9,7 @@ public class Handler : MonoBehaviour
 	[HideInInspector]
 	public static Handler INSTANCE; // The INSTANCE of the Handler class
 	public int maxLevelBeaten; // The maximum level the player has reached in this game session	
+	private AudioSource audioSource;
 
 	#endregion
 
@@ -18,6 +19,8 @@ public class Handler : MonoBehaviour
 		//currentSceneIndex = DefaultSceneLoader.tempIndex;
         //Make a singleton
         INSTANCE = this;
+
+		audioSource = GetComponent<AudioSource>();
 
         // DO NOT destroy this object on ANY scene load
         DontDestroyOnLoad(gameObject);
@@ -70,6 +73,11 @@ public class Handler : MonoBehaviour
 		maxLevelBeaten = PlayerPrefs.GetInt("MaximumLevelBeaten");
 
 		LoadScene(maxLevelBeaten);
+	}
+
+	public void PlayMoveSound()
+	{
+		audioSource.Play();
 	}
 
 #endregion
