@@ -66,6 +66,7 @@ public class Movement : MonoBehaviour
             }
 
             if (_input != Vector2.zero) {
+				Handler.INSTANCE.PlayMoveSound();
                 StartCoroutine(moveToGrid(transform.position));
             }
         }
