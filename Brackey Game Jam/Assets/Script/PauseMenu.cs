@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 
 	private void Update()
 	{
-		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 1)
+		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != 1 || UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex != UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings +1)
 		{
 			if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.P)))
 			{
@@ -29,12 +29,14 @@ public class PauseMenu : MonoBehaviour
 	}
 	public void PauseGame()
 	{
+		Handler.INSTANCE.ost.Pause();
 		pasueMenu.SetActive(true);
 		Time.timeScale = 0;
 	}
 
 	public void UnPauseGame()
 	{
+		Handler.INSTANCE.ost.UnPause();
 		pasueMenu.SetActive(false);
 		Time.timeScale = 1;
 	}

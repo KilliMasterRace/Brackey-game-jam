@@ -503,7 +503,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Thank you for taking your time to play our game! We really appreciate it!
-    We would really love if you would give us some feedback for our first ever game.
+    We would really love if you would give us some feedback for our first game ever
+    made.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -572,10 +573,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: -2.5720348, z: 0.025137424, w: 0.06858826}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 154
+    characterCount: 159
     spriteCount: 0
-    spaceCount: 29
-    wordCount: 30
+    spaceCount: 30
+    wordCount: 31
     linkCount: 0
     lineCount: 7
     pageCount: 1

@@ -14,6 +14,8 @@ public class UIButtonFunctions : MonoBehaviour
 
 	public void NewGame()
 	{
+		Handler.INSTANCE.maxLevelBeaten = 0;
+		Handler.INSTANCE.SaveMaximumLevelBeaten();
 		Handler.INSTANCE.LoadNextScene();
 	}
 
@@ -24,7 +26,9 @@ public class UIButtonFunctions : MonoBehaviour
 	
 	public void ReturnToMenu()
 	{
-		GetComponent<PauseMenu>().UnPauseGame();
+		PauseMenu temp = GetComponent<PauseMenu>();
+		if (temp != null)
+			temp.UnPauseGame();
 		Handler.INSTANCE.LoadMenuScene();
 	}
 
