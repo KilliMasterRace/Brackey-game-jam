@@ -29,12 +29,14 @@ public class PauseMenu : MonoBehaviour
 	}
 	public void PauseGame()
 	{
+		Handler.INSTANCE.ost.Pause();
 		pasueMenu.SetActive(true);
 		Time.timeScale = 0;
 	}
 
 	public void UnPauseGame()
 	{
+		Handler.INSTANCE.ost.UnPause();
 		pasueMenu.SetActive(false);
 		Time.timeScale = 1;
 	}

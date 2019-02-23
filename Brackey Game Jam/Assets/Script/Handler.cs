@@ -10,6 +10,7 @@ public class Handler : MonoBehaviour
 	public static Handler INSTANCE; // The INSTANCE of the Handler class
 	public int maxLevelBeaten; // The maximum level the player has reached in this game session	
 	private AudioSource audioSource;
+	public AudioSource ost;
 
 	#endregion
 
