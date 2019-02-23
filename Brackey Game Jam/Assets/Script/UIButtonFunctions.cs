@@ -14,6 +14,8 @@ public class UIButtonFunctions : MonoBehaviour
 
 	public void NewGame()
 	{
+		Handler.INSTANCE.maxLevelBeaten = 0;
+		Handler.INSTANCE.SaveMaximumLevelBeaten();
 		Handler.INSTANCE.LoadNextScene();
 	}
 
