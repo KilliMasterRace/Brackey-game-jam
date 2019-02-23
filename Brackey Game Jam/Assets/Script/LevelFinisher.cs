@@ -15,6 +15,7 @@ public class LevelFinisher : MonoBehaviour {
             _tempCounter--;
 
             if (_tempCounter == 0) {
+				Handler.INSTANCE.maxLevelBeaten++;
 				Handler.INSTANCE.SaveMaximumLevelBeaten();
                 Movement.CountMove = 0;
                 Handler.INSTANCE.LoadNextScene();
